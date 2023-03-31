@@ -55,6 +55,23 @@
             margin: 0 auto;
             margin-bottom: 20px;
         }
+        #gamecontainer{
+            margin-top: 30px;
+        }
+        #scorebox{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            height: 183px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            flex-direction: column;
+            align-content: center;
+            flex-wrap: nowrap;
+            padding: 20px;
+            position: absolute;
+        }
     </style>
 </head>
 
@@ -67,12 +84,19 @@
         </nav>
     </header>
     <main>
-        <div id="gamecontainer" class="container">
-            <h4 class="center-align">Poäng: <span id="score">0</span></h4>
-            <h4 class="center-align"><span id="round">Runda: 1</span>/<span id="maxrounds"></span></h4>
 
-            
-            <img id="programImage" alt="Program image" width="300" height="300">
+        <div id="gamecontainer" class="container">
+            <div id="scorebox">
+                <h4>Poäng: <span id="score">0</span></h4>
+                <h4><span id="round">Runda: 1</span>/<span id="maxrounds"></span></h4>
+            </div>            
+
+            <div class="mtl-card center-align">
+                <img id="programImage" alt="Program image" width="300" height="300">
+                <h4 id="programTitle"></h4>
+            </div>
+
+
             <div class="grid">
                 <div id="option1"></div>
                 <div id="option2"></div>
@@ -136,6 +160,7 @@
             const program = filteredPrograms[Math.floor(Math.random() * filteredPrograms.length)];
             const correctCategory = categories.programcategories.find(category => category.id === program.programcategory.id);
 
+            programTitle.innerText = program.name;
             programImage.src = program.programimage;
             programImage.alt = program.name;
 
