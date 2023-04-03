@@ -149,10 +149,10 @@
             }
 
             if (!programsCache) {
-                programsCache = await fetchData('http://api.sr.se/api/v2/programs?format=json&size=500');
+                programsCache = await fetchData('https://api.sr.se/api/v2/programs?format=json&size=500');
             }
             if (!categoriesCache) {
-                categoriesCache = await fetchData('http://api.sr.se/api/v2/programcategories?format=json&size=50');
+                categoriesCache = await fetchData('https://api.sr.se/api/v2/programcategories?format=json&size=50');
             }
             const programs = programsCache;
             const categories = categoriesCache;
